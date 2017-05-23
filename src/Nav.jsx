@@ -7,7 +7,6 @@ class Nav extends Component {
         e.preventDefault();
         const location = this.refs.search.value;
         const encodedLocation = encodeURIComponent(location);
-        console.log(location);
         if (location.length > 0) {
             this.refs.search.value = '';
             this.props.history.push('/location/' + encodedLocation);

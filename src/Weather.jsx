@@ -19,8 +19,8 @@ class Weather extends Component {
 
     componentDidUpdate() {
         const loc = this.props.match.params.city;
-        if (this.state.loc !== loc) {
-            this.setState({loc: loc});
+        if (this.state.loc !== loc && !!loc) {
+            this.setState({loc: loc});//updating the component on Nav search (via router)
         }
     }
 
@@ -65,9 +65,11 @@ class Weather extends Component {
 
         return (
             <div>
-                <h1 className="text-center">Get Weather</h1>
+                <div className="text-center">
+                    <h1>Get Weather</h1>
+                    <p>in any city of the world</p>
+                </div>
                 <WeatherForm onSearch={this.handleSearch} />
-                <div>{this.state.loc}</div>
                 {renderMessage()}
                 {renderError()}
             </div>
